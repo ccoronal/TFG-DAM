@@ -522,6 +522,7 @@ RectTransform:
   - {fileID: 1097952941}
   - {fileID: 1939569533}
   - {fileID: 703329030}
+  - {fileID: 784262938}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -544,6 +545,7 @@ MonoBehaviour:
   menu: {fileID: 1097952940}
   opciones: {fileID: 1939569532}
   info: {fileID: 703329029}
+  juego: {fileID: 0}
 --- !u!1 &449675226
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +659,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 37, y: 52.02}
+  m_AnchoredPosition: {x: -7, y: 44}
   m_SizeDelta: {x: 446.59, y: 157.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &611396648
@@ -680,7 +682,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- Proyecto Final DAM\n- Curso 2025/2026\n- Claudia Corona L\xF3pez"
+  m_text: "\xA1Ay\xFAdame a superar las pruebas y convertirme en el campe\xF3n del
+    torneo de juegos de ingenio!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -707,7 +710,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.55
+  m_fontSize: 26.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -918,12 +921,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784262936}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -67.13281, y: -20.54734, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -19438.69, y: -8611.396, z: -3817.9998}
+  m_LocalScale: {x: 38.179996, y: 38.179996, z: 38.179996}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 366183438}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &850548976
 GameObject:
@@ -2178,7 +2181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d176728803c1a584c95e389c357aa952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  fuerzaSalto: 1.5
   velocidad: 1
   escena: 
 --- !u!95 &1689594023
@@ -3212,4 +3214,3 @@ SceneRoots:
   - {fileID: 30737042}
   - {fileID: 449675229}
   - {fileID: 366183438}
-  - {fileID: 784262938}
