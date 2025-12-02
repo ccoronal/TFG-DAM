@@ -6,12 +6,13 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    public float fuerzaSalto, velocidad;
+    //  public float fuerzaSalto, velocidad;
+    public float velocidad;
     public string escena;
     private AudioSource audioSource;
     private Rigidbody2D rb;
     private Animator anim;
-    private bool tieneLlave = false;
+    private bool tieneLlave = false, tieneHerramienta = false;
 
     void Start()
     {
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // cambiar de animación al aterrizar
-        if (collision.gameObject.tag == "Suelo")
+        if (collision.gameObject.tag == "Suelo" || collision.gameObject.tag == "EnMovimiento")
         {
             // cambiar a animación a aterrizar (+ paso de vuelta a idle si no se mueve)
             anim.SetBool("estaSaltando", false);
@@ -51,11 +52,25 @@ public class Player : MonoBehaviour
             audioSource.Play();
         }
 
+        // recoger herramienta al entrar en contacto con ella
+        if (collision.gameObject.tag == "Herramienta")
+        {
+            tieneHerramienta = true;
+            collision.gameObject.SetActive(false);
+            audioSource.Play();
+        }
+
         // pasar a siguiente nivel/escena al pasar por la puerta
         if (collision.gameObject.tag == "Puerta" && tieneLlave == true)
         {
             audioSource.Play();
             cambioEscena(escena);
+        }
+
+        // eliminar obstáculo al entrar en contacto si se tiene la herramienta
+        if (collision.gameObject.tag == "Obstaculo" && tieneHerramienta == true)
+        {
+            collision.gameObject.SetActive(false);
         }
 
         // ajustar velocidad a plataforma en movimiento (evitar caída)
@@ -73,12 +88,19 @@ public class Player : MonoBehaviour
         {
             transform.parent = null;
         }
+
+        // contar estar en el aire como saltar aunque no se pulse la tecla de salto
+        if (collision.gameObject.tag == "Suelo" || collision.gameObject.tag == "EnMovimiento")
+        {
+            // cambiar animación (salto)
+            anim.SetBool("estaSaltando", true);
+        }
     }
 
     void moverPj()
     {
         anim.SetBool("estaMoviendose", false);
-
+        /*
         // saltar al pulsar flecha hacia arriba
         if (Keyboard.current.upArrowKey.isPressed)
         {
@@ -86,6 +108,7 @@ public class Player : MonoBehaviour
             anim.SetBool("estaSaltando", true);
             rb.AddForce(new Vector2(0, fuerzaSalto));
         }
+        */
 
         // ir hacia la derecha al pulsar tecla de flecha
         if (Keyboard.current.rightArrowKey.isPressed)
