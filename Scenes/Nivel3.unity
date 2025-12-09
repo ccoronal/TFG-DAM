@@ -2038,7 +2038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d176728803c1a584c95e389c357aa952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  velocidad: 2
+  velocidad: 8
   escena: Final
 --- !u!95 &582233954
 Animator:

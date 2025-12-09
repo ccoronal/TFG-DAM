@@ -27,7 +27,8 @@ public class Player : MonoBehaviour
     {
         // movimiento
         moverPj();
-
+        // salir
+        Salir();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -133,5 +134,14 @@ public class Player : MonoBehaviour
     {
         SceneManager.LoadScene(Scene);
     }
+
+    // salir del juego al pulsar escape
+    public void Salir()
+    {
+        if (Keyboard.current.escapeKey.isPressed)
+        {
+            Application.Quit();
+        }
+    }    
 
 }
